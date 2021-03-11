@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 50px);
+  width: 100%;
+  padding: 30px;
+  .left_content {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .grill_area {
+      //height: 30%;
+      border: 1px solid #000;
+    }
+    .code_area {
+      height: 50%;
+      border: 1px solid #000;
+    }
+  }
+  .right_content {
+    width: 30%;
+    border: 1px solid #000;
+  }
+}
