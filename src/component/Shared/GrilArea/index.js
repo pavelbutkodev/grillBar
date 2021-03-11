@@ -10,7 +10,7 @@ export default class NoDraggingLayout extends React.PureComponent {
 		className: "layout",
 		isDraggable: false,
 		isResizable: false,
-		items: 12,
+		items: 25,
 		cols: 12,
 		rowHeight: 20,
 		onLayoutChange: function() {}
