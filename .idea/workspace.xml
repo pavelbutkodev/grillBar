@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="80329361-b2b0-4cdf-819d-74a3e9350248" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/Shared/GrilArea/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Shared/GrilArea/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/UI/TextArea/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/TextArea/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/MainWindow/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/MainWindow/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/MainWindow/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/MainWindow/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/component/UI/TextArea" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -34,10 +39,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/component/Shared/GrilArea" />
+      <recent name="$PROJECT_DIR$/src/layout/MainWindow" />
       <recent name="$PROJECT_DIR$/src/component/UI/TextArea" />
       <recent name="$PROJECT_DIR$/src/component/Shared/CodeArea" />
       <recent name="$PROJECT_DIR$/src/layout" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/layout" />
@@ -67,6 +73,9 @@
       <option name="presentableId" value="Default" />
       <updated>1615464827934</updated>
       <workItem from="1615464829011" duration="10348000" />
+      <workItem from="1615533627764" duration="7994000" />
+      <workItem from="1615542828895" duration="17000" />
+      <workItem from="1615542847144" duration="978000" />
     </task>
     <task id="LOCAL-00001" summary="delete idea">
       <created>1615465366901</created>
@@ -105,6 +114,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="delete idea" />

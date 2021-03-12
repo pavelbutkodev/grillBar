@@ -1,6 +1,7 @@
 import React from "react";
 import _ from "lodash";
-import RGL, { WidthProvider } from "react-grid-layout";
+import RGL, {WidthProvider} from "react-grid-layout";
+
 import "./style.css"
 
 const ReactGridLayout = WidthProvider(RGL);
@@ -10,41 +11,56 @@ export default class NoDraggingLayout extends React.PureComponent {
 		className: "layout",
 		isDraggable: false,
 		isResizable: false,
-		items: 25,
-		cols: 12,
-		rowHeight: 20,
-		onLayoutChange: function() {}
+		items: 1,
+		rowHeight: 5,
+		onLayoutChange: function () {
+		}
 	};
 
 	constructor(props) {
 		super(props);
-
 		const layout = this.generateLayout();
-		this.state = { layout };
+		this.state = {layout};
+		this.size = {
+			width: `${props.width}px`,
+			height: `${props.height}px`
+		}
+		this.colsSize = this.props.width / 10
 	}
 
 	generateDOM() {
-		return _.map(_.range(this.props.items), function(i) {
+		return _.map(_.range(this.props.items), function (i) {
 			return (
-				<div key={i}>
-					<span className="text">{i}</span>
+				<div key={i} style={{background: 'rgb(34,139,34)', borderRadius: '10%'}}>
+					<span className="text"/>
 				</div>
 			);
 		});
 	}
 
 	generateLayout() {
-		const p = this.props;
-		return _.map(new Array(p.items), function(item, i) {
-			var y = _.result(p, "y") || Math.ceil(Math.random() * 4) + 1;
-			return {
-				x: (i * 2) % 12,
-				y: Math.floor(i / 6) * y,
-				w: 2,
-				h: y,
-				i: i.toString()
-			};
-		});
+		// const p = this.props;
+		// return _.map(new Array(p.items), function(item, i) {
+		// 	var y = _.result(p, "y") || Math.ceil(Math.random() * 4) + 1;
+		// 	console.log('===>i', i);
+		// 	return {
+		// 		x: (i * 2) % 50,
+		// 		y: Math.floor(i / 6) * y,
+		// 		w: 30,
+		// 		h: 10,
+		// 		i: i.toString()
+		// 	};
+		// });
+		const bigCube = this.props.newGrillItems
+		// bigCube.map((item, i) => {
+		// 	console.log('===>item', item, i);
+			return [{
+				x: 0,
+				y: 0,
+				w: bigCube[1].width / 10,
+				h: bigCube[1].height / 10,
+				i: '0'
+			}]
 	}
 
 	onLayoutChange(layout) {
@@ -57,6 +73,8 @@ export default class NoDraggingLayout extends React.PureComponent {
 			<ReactGridLayout
 				layout={this.state.layout}
 				onLayoutChange={this.onLayoutChange}
+				style={this.size}
+				cols={this.colsSize}
 				{...this.props}
 			>
 				{this.generateDOM()}
