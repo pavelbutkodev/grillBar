@@ -12,7 +12,7 @@ export default class NoDraggingLayout extends React.PureComponent {
 		isDraggable: false,
 		isResizable: false,
 		rowHeight: 5,
-		items: 15,
+		items: 30,
 		onLayoutChange: function () {
 		}
 	};
@@ -53,7 +53,6 @@ export default class NoDraggingLayout extends React.PureComponent {
 		// 	};
 		// });
 		const newFigures = [];
-
 		const bigCube = this.props.newGrillItems
 		let xMax = (this.props.width / 10) + 1;
 		let xCurrent = 0;
@@ -65,31 +64,50 @@ export default class NoDraggingLayout extends React.PureComponent {
 		console.log('===>xCurrent', xCurrent);
 		console.log('===>go');
 
-		bigCube.map((item, i) => {
-			for (let c = 0; c < item.count; c++) {
-				console.log('===>item', item);
-				if (xMax - item.width / 10 > 0) {
-
-					console.log('===>xMax', xMax);
-					console.log('===>yMax', yMax);
-					console.log('===>item.width', item.width / 10);
-					console.log('===>item.height', item.height / 10);
-
-					newFigures.push({
-						x: xCurrent,
-						y: yCurrent,
-						w: item.width / 10,
-						h: item.height / 10,
-						i: countGeneral.toString()
-					})
-
-					countGeneral += 1
-					xMax = xMax - item.width / 10
-					xCurrent = xCurrent + item.width / 10;
-				}
+		bigCube.map((item) => {
+			for (let count = 0; count < item.count; count++) {
+				newFigures.push({
+					x: xCurrent,
+					y: yCurrent,
+					w: item.width / 10,
+					h: item.height / 10,
+					i: countGeneral.toString(),
+					xP: xCurrent,
+					yP: yCurrent,
+				})
+				countGeneral += 1
+				xMax = xMax - item.width / 10
+				xCurrent = xCurrent + item.width / 10;
+				yCurrent = yCurrent + item.height / 10;
 			}
-			
+			return newFigures
 		})
+
+		// bigCube.map((item, i) => {
+		// 	for (let c = 0; c < item.count; c++) {
+		// 		console.log('===>item', item);
+		// 		if (xMax - item.width / 10 > 0) {
+		//
+		// 			console.log('===>xMax', xMax);
+		// 			console.log('===>yMax', yMax);
+		// 			console.log('===>item.width', item.width / 10);
+		// 			console.log('===>item.height', item.height / 10);
+		//
+		// 			newFigures.push({
+		// 				x: xCurrent,
+		// 				y: yCurrent,
+		// 				w: item.width / 10,
+		// 				h: item.height / 10,
+		// 				i: countGeneral.toString()
+		// 			})
+		//
+		// 			countGeneral += 1
+		// 			xMax = xMax - item.width / 10
+		// 			xCurrent = xCurrent + item.width / 10;
+		// 		}
+		// 	}
+		// })
+
 		console.log('===>newFigures', newFigures);
 		return newFigures;
 	}
@@ -101,11 +119,13 @@ export default class NoDraggingLayout extends React.PureComponent {
 	render() {
 		console.log('===>layout', this.state.layout);
 		console.log('===>this.props', this.props);
+
 		return (
 			<ReactGridLayout
 				layout={this.state.layout}
 				onLayoutChange={this.onLayoutChange}
 				style={this.size}
+				items={this.countGrill}
 				cols={this.colsSize}
 				{...this.props}
 			>
