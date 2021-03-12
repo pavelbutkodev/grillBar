@@ -11,8 +11,8 @@ export default class NoDraggingLayout extends React.PureComponent {
 		className: "layout",
 		isDraggable: false,
 		isResizable: false,
-		items: 1,
 		rowHeight: 5,
+		items: 15,
 		onLayoutChange: function () {
 		}
 	};
@@ -21,11 +21,12 @@ export default class NoDraggingLayout extends React.PureComponent {
 		super(props);
 		const layout = this.generateLayout();
 		this.state = {layout};
+		this.countGrill = props.newGrillItems.length
 		this.size = {
 			width: `${props.width}px`,
-			height: `${props.height}px`
+			height: `${props.height + 50}px`
 		}
-		this.colsSize = this.props.width / 10
+		this.colsSize = props.width / 10
 	}
 
 	generateDOM() {
@@ -51,16 +52,46 @@ export default class NoDraggingLayout extends React.PureComponent {
 		// 		i: i.toString()
 		// 	};
 		// });
+		const newFigures = [];
+
 		const bigCube = this.props.newGrillItems
-		// bigCube.map((item, i) => {
-		// 	console.log('===>item', item, i);
-			return [{
-				x: 0,
-				y: 0,
-				w: bigCube[1].width / 10,
-				h: bigCube[1].height / 10,
-				i: '0'
-			}]
+		let xMax = (this.props.width / 10) + 1;
+		let xCurrent = 0;
+		let yMax = this.props.height / 10;
+		let yCurrent = 0;
+		let countGeneral = 0;
+
+		console.log('===>xMax', xMax);
+		console.log('===>xCurrent', xCurrent);
+		console.log('===>go');
+
+		bigCube.map((item, i) => {
+			for (let c = 0; c < item.count; c++) {
+				console.log('===>item', item);
+				if (xMax - item.width / 10 > 0) {
+
+					console.log('===>xMax', xMax);
+					console.log('===>yMax', yMax);
+					console.log('===>item.width', item.width / 10);
+					console.log('===>item.height', item.height / 10);
+
+					newFigures.push({
+						x: xCurrent,
+						y: yCurrent,
+						w: item.width / 10,
+						h: item.height / 10,
+						i: countGeneral.toString()
+					})
+
+					countGeneral += 1
+					xMax = xMax - item.width / 10
+					xCurrent = xCurrent + item.width / 10;
+				}
+			}
+			
+		})
+		console.log('===>newFigures', newFigures);
+		return newFigures;
 	}
 
 	onLayoutChange(layout) {
@@ -69,6 +100,7 @@ export default class NoDraggingLayout extends React.PureComponent {
 
 	render() {
 		console.log('===>layout', this.state.layout);
+		console.log('===>this.props', this.props);
 		return (
 			<ReactGridLayout
 				layout={this.state.layout}

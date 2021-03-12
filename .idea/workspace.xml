@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="80329361-b2b0-4cdf-819d-74a3e9350248" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/component/Shared/GrilArea/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Shared/GrilArea/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UI/TextArea/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UI/TextArea/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/MainWindow/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/MainWindow/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/MainWindow/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/MainWindow/styles.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +70,7 @@
       <workItem from="1615464829011" duration="10348000" />
       <workItem from="1615533627764" duration="7994000" />
       <workItem from="1615542828895" duration="17000" />
-      <workItem from="1615542847144" duration="978000" />
+      <workItem from="1615542847144" duration="4920000" />
     </task>
     <task id="LOCAL-00001" summary="delete idea">
       <created>1615465366901</created>
@@ -98,7 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615475445169</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1">
+      <created>1615543829922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615543829922</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1">
+      <created>1615543837712</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615543837712</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +128,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="delete idea" />
     <MESSAGE value="/" />
-    <option name="LAST_COMMIT_MESSAGE" value="/" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
 </project>
