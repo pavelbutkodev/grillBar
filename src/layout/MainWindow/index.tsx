@@ -1,64 +1,58 @@
-import React, { FC } from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {CodeArea} from "../../component/Shared/CodeArea";
 import BasicLayout from "../../component/Shared/GrilArea";
+import {useSelector} from "react-redux";
+
+import {getData} from '../../store/core/selector';
 
 import styles from './styles.module.scss';
+import {IGrillElement} from "../../store/core/types";
 
 const MainWindow: FC = () => {
-  const data = {
-    "grill": {
-      "width": 500,
-      "height": 200,
-      "grillItems": [{
-        "width": 50,
-        "height": 30,
-        "count": 15,
-        "title": "Steak"
-      }, {
-        "width": 140,
-        "height": 140,
-        "count": 2,
-        "title": "Sausage"
-      }, {
-        "width": 130,
-        "height": 60,
-        "count": 4,
-        "title": "Tomato"
-      }, {
-        "width": 20,
-        "height": 10,
-        "count": 37,
-        "title": "Veal"
-      }]
-    }
-  }
+	const grillData = useSelector(getData)
+	const [loading, setLoading] = useState(false)
+	const [state, setState] = useState({
+		height: 0,
+		width: 0,
+		newGrillItems: []
+	})
 
-  const newGrillItems = data.grill.grillItems.sort(function(a, b) {
-    return parseFloat(String(b.width * b.height)) - parseFloat(String(a.width * a.height));
-  })
+	useEffect(() => {
+		setTimeout(() => createGrillData(grillData), 1)
+	}, [grillData])
 
-  const heightGrillMaster = data.grill.height
-  const widthGrillMaster = data.grill.width
+	const createGrillData = (data: { value: string }) => {
+		const grillDataObject = JSON.parse(data.value)
+		if (grillDataObject) {
+			const newGrillItems = grillDataObject.grill.grillItems.sort((a: IGrillElement, b: IGrillElement) => {
+				return parseFloat(String(Number(b.width) * Number(b.height))) - parseFloat(String(Number(a.width) * Number(a.height)));
+			})
+			const heightGrillMaster = grillDataObject.grill.height
+			const widthGrillMaster = grillDataObject.grill.width
+			setState({height: heightGrillMaster, width: widthGrillMaster, newGrillItems: newGrillItems})
+			setLoading(true)
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.left_content}>
-        <div className={styles.grill_area}>
-          <BasicLayout
-            height={heightGrillMaster}
-            width={widthGrillMaster}
-            newGrillItems={newGrillItems}
-          />
-        </div>
-        <div className={styles.code_area}>
-          <CodeArea />
-        </div>
-      </div>
-      <div className={styles.right_content}>
-        Item out of grill
-      </div>
-    </div>
-  );
+		}
+	}
+	return (
+		<div className={styles.container}>
+			<div className={styles.left_content}>
+				<div className={styles.grill_area}>
+					{loading && <BasicLayout
+						height={state.height}
+						width={state.width}
+						newGrillItems={state.newGrillItems}
+					/>}
+				</div>
+				<div className={styles.code_area}>
+					<CodeArea/>
+				</div>
+			</div>
+			<div className={styles.right_content}>
+				Item out of grill
+			</div>
+		</div>
+	);
 }
 
 export default MainWindow;

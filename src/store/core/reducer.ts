@@ -1,29 +1,18 @@
 import {
-  LOADING_TRUE,
-  LOADING_FALSE,
-  SELECT_FIGURE,
+  GET_DATA
 } from '../../constants/actionTypes';
 import {  IReducer } from "./types";
 
 const INITIAL_STATE = {
-  loading: false,
-  selectFigure: null,
+  data: {},
 };
 
 
 const coreReducer = (state = INITIAL_STATE, {type, payload}: IReducer) => {
   switch (type) {
-    case LOADING_TRUE:
+    case GET_DATA:
       return {
-        ...state, loading: true,
-      };
-    case LOADING_FALSE:
-      return {
-        ...state, loading: false,
-      };
-    case SELECT_FIGURE:
-      return {
-        ...state, selectFigure: payload,
+        ...state, data: payload,
       };
     default:
       return {

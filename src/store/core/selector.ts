@@ -4,8 +4,7 @@ import { IState } from './types'
 
 const selectState = (state: IState) => state.core;
 
-export const getLoading = createSelector(selectState, (state) => state.loading);
+export const getData = createSelector(selectState, (state) => state.data);
 
-export const getSelectFigure = createSelector(selectState, (state) => state.selectFigure);
 
 

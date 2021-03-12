@@ -1,6 +1,5 @@
 export interface ICore {
-	loading: boolean,
-	selectFigure: string
+	data: any,
 }
 
 export interface IState {
@@ -12,3 +11,9 @@ export interface IReducer {
 	payload: string
 }
 
+export interface IGrillElement{
+	width: string | number,
+	height: string | number,
+	count: string | number,
+	title: string
+}
